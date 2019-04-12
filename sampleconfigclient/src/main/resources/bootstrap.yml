@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: sampleconfigclient
+  cloud:
+    config:
+      uri: http://localhost:8082

@@ -1,0 +1,21 @@
+logging:
+  level:
+    com.aric.samples: TRACE
+
+
+server:
+  port: 8082
+spring:
+  cloud:
+    config:
+      server:
+        jdbc:
+          sql: select KEY, VALUE from CONFIG.PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?
+          order: 1
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    jndi-name: jdbc/config
+  profiles:
+    active:
+    - jdbc  jpa:    show-sql: true
+    hibernate:      ddl-auto: create-drop
